@@ -12,7 +12,7 @@ class Menu extends Component {
             <li><a href='/team'>팀 소개</a></li>
             <li><a href='/player'>선수 소개</a></li>
             <li><a href='/record'>기록실</a></li>
-            <li>자료실</li>
+            <li><a href='/info'>자료실</a></li>
             <li>사진첩</li>
             <li>지원서</li>
         </ul>
