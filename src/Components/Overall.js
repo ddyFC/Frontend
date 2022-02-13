@@ -24,7 +24,6 @@ class Overall extends Component {
     }
     return(
       <div>
-        <Record></Record>
         <h1> this is overall </h1>
         {lists}
       </div>
