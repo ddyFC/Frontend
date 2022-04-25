@@ -9,6 +9,7 @@ function Signup() {
     }
     const [Email, SetEmail] = useState("");
     const [Password, SetPassword] = useState("");
+    const [Username, SetUsername] = useState("");
   
     const emailHandler = (e) => {
       e.preventDefault();
@@ -19,15 +20,22 @@ function Signup() {
       e.preventDefault();
       SetPassword(e.target.value);
     };
+
+    const usernameHandler = (e) => {
+        e.preventDefault();
+        SetUsername(e.target.value);
+      };
   
     const submitHandler = (e) => {
       e.preventDefault();
       // state에 저장한 값을 가져옵니다.
+      console.log(Username);
       console.log(Email);
-      
       console.log(Password);
   
       let body = {
+        back_number: '-1',
+        name: Username,
         email: Email,
         password: Password,
       };
@@ -55,7 +63,7 @@ function Signup() {
             <h3>Sign Up</h3>
             <div className="form-group">
                 <label>Name</label>
-                <input type="text" className="form-control" placeholder="First name" />
+                <input type="text" className="form-control" placeholder="First name" value={Username} onChange={usernameHandler} />
             </div>
             <div className="form-group">
                 <label>Email address</label>
