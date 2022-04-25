@@ -1,20 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import Record from './Record'
 
-class YearRecord extends Component {
-  constructor(props) {
-    super(props);
-    this.state= {
+function YearRecord() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState([]);
+
+  useEffect( () => {
+    async function fetchData() {
+      setLoading(true);
+      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+      setPosts(response.data);
+      setLoading(false);
     }
-  }
-  render() {
-    return(
+    fetchData();
+  }, []);
+
+  console.log(posts);
+  return (
+    <>
       <div>
-        
         <h1> this is year record </h1>
+        <a>2021</a><br />
+        <a>2022</a>
       </div>
-    )
-  }
+    </>
+  );
 }
+
 
 export default YearRecord;

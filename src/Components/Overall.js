@@ -1,34 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import Record from './Record'
 
-class Overall extends Component {
-  constructor(props) {
-    super(props);
-    this.state= {
-        opponents: [
-            {id: 1, name: 'cruise', result: '1'},
-            {id: 2, name: 'jcfc', result: '-1'}
-        ]
+function Overall() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState([]);
+
+  useEffect( () => {
+    async function fetchData() {
+      setLoading(true);
+      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+      setPosts(response.data);
+      setLoading(false);
     }
-  }
-  render() {
-    var i = 0;
-    var lists = [];
-    var data = this.state.opponents;
-    console.log(data);
-    for (i=0; i<this.state.opponents.length; i++) {
-        console.log(i);
-        lists.push(
-            <li>{data[i].name}</li>
-        )
+    fetchData();
+  }, []);
+
+  console.log(posts);
+
+  // 승무패 개수 세기
+  let win = 0, draw = 0, lose = 0;
+  for (var i=0; i<posts.length; i++) {
+    if (posts[i].id %2 == 1) {
+      win++;
     }
-    return(
-      <div>
-        <h1> this is overall </h1>
-        {lists}
-      </div>
-    )
+    else {
+      lose++;
+    }
+   // console.log(win, draw, lose);
   }
+  
+  return(
+    <>
+      <h1>역대 기록</h1>
+      <p>승: {win} 무: {draw} 패: {lose}</p>
+    </>
+  );
 }
 
 export default Overall;

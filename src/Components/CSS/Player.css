@@ -1,0 +1,17 @@
+.Player {
+    display: block;
+    
+}
+table {
+    border: 3px solid black;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+/* 
+.playerlist {
+   
+} */
+
