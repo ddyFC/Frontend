@@ -34,7 +34,6 @@ function Signup() {
       console.log(Password);
   
       let body = {
-        back_number: '-1',
         name: Username,
         email: Email,
         password: Password,
