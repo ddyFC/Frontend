@@ -42,7 +42,7 @@ function Login() {
     return (
         <>
         <div style={style}>
-        <form>
+        <form onSubmit={submitHandler}>
             <h3>Sign In</h3>
             <div className="form-group">
                 <label>Email address</label>
