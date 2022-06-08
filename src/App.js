@@ -22,6 +22,14 @@ var style = {
   backgroundColor: 'white',
 }
 
+// function App() {
+//   return (
+//  <Route path='/login' element={<Login></Login>}></Route> 
+//   );
+// }
+
+// export default App;
+
 class App extends Component {
   constructor(props) {
     super(props);

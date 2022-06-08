@@ -15,12 +15,12 @@ function Login() {
     
     const emailHandler = (e) => {
         e.preventDefault();
-        SetEmail(e.target.value());
+        SetEmail(e.target.value);
     };
 
     const passwordHandler = (e) => {
         e.preventDefault();
-        SetPassword(e.target.value());
+        SetPassword(e.target.value);
     };
 
     const submitHandler = (e) => {
@@ -35,6 +35,7 @@ function Login() {
         .post("http://127.0.0.1:5000/api/v1/login", body)
         .then((res) => {
             console.log(res)
+            console.log(body)
         });
     };
 
