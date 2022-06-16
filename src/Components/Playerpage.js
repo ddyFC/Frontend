@@ -61,6 +61,5 @@ const Playerpage = ({postsPerPage, totalPosts, paginate}) => {
             </nav>
         </div>
     );
-    
 };
 export default Playerpage;
