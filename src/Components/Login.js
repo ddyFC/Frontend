@@ -1,6 +1,8 @@
 import React, { Component, useState } from 'react';
 import axios from 'axios';
 import {Navbar, Nav} from 'react-bootstrap';
+import Header from './Header';
+import Footer from './Footer';
 
 function Login() {
     const style = {
@@ -33,30 +35,32 @@ function Login() {
 
         var result;
 
-        axios
-        .post("http://127.0.0.1:5000/api/v1/login", body)
-        .then((res) => {
-            console.log(res)
-            console.log(body)
-            if (res.data == 0) {
-                alert(res.data);
-            }
-            else if (res.data == 2) {
-                alert(res.data);
-            }
-            else if (res.data == 1) {
-                console.log(res);
-                sessionStorage.setItem('email', Email);
-            }
-            else {
-                alert("wrong result");
-            }
-        });
+        // axios
+        // .post("http://127.0.0.1:5000/api/v1/login", body)
+        // .then((res) => {
+        //     console.log(res)
+        //     console.log(body)
+        //     if (res.data == 0) {
+        //         alert(res.data);
+        //     }
+        //     else if (res.data == 2) {
+        //         alert(res.data);
+        //     }
+        //     else if (res.data == 1) {
+        //         console.log(res);
+        //         sessionStorage.setItem('email', Email);
+        //     }
+        //     else {
+        //         alert("wrong result");
+        //     }
+        // });
+        sessionStorage.setItem('email', Email);
         document.location.href = '/'
     };
 
     return (
         <>
+        <Header></Header>
         <div style={style}>
         <form onSubmit={submitHandler}>
             <h3>Sign In</h3>
@@ -80,7 +84,7 @@ function Login() {
             </p>
         </form>
         </div>
-        
+        <Footer></Footer>
         </>
     );
 }

@@ -1,8 +1,10 @@
 import React, { Component, useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import {Navbar, Nav} from 'react-bootstrap';
+import {Navbar, Nav, Row, Col} from 'react-bootstrap';
 import Overall from 'Components/Overall';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import ScoringChart from './subcomponent/ScoringChart';
+import TeamRecordChart from './subcomponent/TeamRecordChart';
 
 
 function Record() {
@@ -10,11 +12,24 @@ function Record() {
     <>
       <div>
          <h1>기록실 입니다.</h1>
-         <h3>전체 기록, 연도별 기록, 혹은 경기 결과을 선택하세요.</h3>
+
+         <Row>
+            <Col>
+              <ScoringChart></ScoringChart>
+            </Col>
+            <Col>
+              <ScoringChart></ScoringChart>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <TeamRecordChart></TeamRecordChart>
+            </Col>
+          </Row>
+
          <Navbar>
-             <Nav.Link href="/record/overall">전체 기록</Nav.Link>
-             <Nav.Link href="/record/yearrecord">연도별 기록</Nav.Link>
-             <Nav.Link href="/record/matchresult">경기 결과</Nav.Link>
+             <Nav.Link href="/record/player">선수 기록</Nav.Link>
+             <Nav.Link href="/record/team">팀 기록</Nav.Link>
          </Navbar>
        </div>
     </>
