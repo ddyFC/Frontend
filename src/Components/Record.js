@@ -11,7 +11,7 @@ function Record() {
   return(
     <>
       <div>
-         <h1>기록실 입니다.</h1>
+         <h1>기록실</h1>
 
          <Row>
             <Col>
